@@ -1,0 +1,6 @@
+https://www.vivaolinux.com.br/topico/Gnome-Shell-1/Remover-icones-do-menu-no-Gnome-Shell  
+
+site viva o linux com passo a passo mais dicas
+
+nano
+

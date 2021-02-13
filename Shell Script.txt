@@ -1,0 +1,206 @@
+todo shell script começa com 
+#!/bin/bash
+
+comando ps
+lista os processos da maquina
+ps axu - lista todos os processos
+
+comando touch
+cria um arquivo ou atualiza o horário
+
+comando tail
+mostra as ultimas linhas do arquivo (padrão são 10 mas pode ser alterado)
+
+comando head
+mostra as primeiras linhas do arquivo (padrão 10)
+
+para ambos -n5 controla numeros de linhas (-n5 mostrara 5 linhas)
+e -c10 controla caracteres
+
+comando wc
+conta linhas, palavras e caracteres de um arquivo
+parâmetros: -l linhas, -w palavras e -m caracteres (-c mostra o numero de bytes)
+
+comando sort
+ordena o conteudo do arquivo (-r ordena no modo reverso)
+-k muda o indice, ex -k2 escolhe o segundo canto
+
+comando uniq
+mostra as palavras que são únicas no arquivo (devem estar em sequencia, pode se uar o sorte primeiro)
+
+parâmetros: 
+-u mostra oque apareceu apenas uma vez
+-d mostra oque apareceu duplicado
+-c conta as repetições
+
+comando tr
+troca ou deleta caracteres
+tr a-z A-Z (trocaria todas as letras para maiúsculo)
+
+parâmetros: 
+-d deleta o caractere passado
+-s comprime todas letras repetidas (ss para s)
+
+comando cut 
+corta pedaços
+ex cut -c1-3 mostra os 3 primeiros caracteres
+
+cut -d" " -f1 mostra o primeiro campo
+
+comando diff
+mostra diferenças entre arquivos ou diretórios
+parâmetros: -w ignora se a diferença for um espaço
+
+comando grep
+procura um conteudo em um arquivo
+
+parâmetros:
+-i tira o case sensitive 
+-c conta quantas vezes encontrou a palavra
+-v não mostra linhas com a palavra
+-r faz a pesquisa recursiva
+-l lista o arquivo que contem a palavra
+-A3 mostra o tanto de linhas passado apos achar a palavra
+-B3 mostra o tanto de linhas passado antes de achar a palavra
+
+grep - usa expressões regulares
+fgrep - apenas caracteres
+egrep - usa expressões regulares estendidas
+
+comando sed 
+substituir um conteudo ou deletar
+
+ex: sed '1,3 d' arquivo.txt deletaria a linha 1 ao 3
+    sed '/Pedro/d' arquivo.txt deletaria todas palavras pedro
+
+comando more
+mostra o conteudo do arquivo paginando
+
+comando less
+mostra o conteudo do arquivo paginando com mais recursos
+
+para busca:
+/ - oque deseja achar de cima para baixo
+? - oque deseja achar de baixo pra cima
+n - vai para proxima aparição da busca
+N - vai para a aparição anterior
+q - sair 
+
+comando find
+busca arquivos ou diretórios
+
+argumentos:
+-name - busca pelo nome do arquivo
+-user - busca por tudo que tem o usuario
+
+comando date
+mostra data e hora do sistema
+
+comando seq 
+gera uma sequencia de numeros
+
+comando expr 
+faz operações
+
+execução sequencial
+
+| - joga a saida do comando para a entrada do proximo
+; - executa de maneira sequencial 
+&& - só executa o segundo comando caso o primeiro esteja ok
+|| - só executa o segundo caso o primeiro de erro
+ 
+> - adiciona o conteudo no arquivo
+>> - adiciona o conteudo concatenando
+1> - saida padrão
+2> - saida de erro (ambos pode se usar >>)
+2>&1 - o erro vai para o local padrão
+
+os erros podem se enviados para /dev/null
+
+< - direciona entrada
+(ex: cat teste.txt | tr a Z ou tr 'a' 'Z' < teste.txt)
+
+Variáveis
+
+Data=`date` - Data cria a variavel e o comando dentro de crases ira ser o valor nela definido, outro modo seria Date=$(date)
+
+env - reconhece apenas variáveis de ambiente 
+set - reconhece variáveis exportadas
+
+para exportar
+
+export Var ou export Var=teste
+
+use de aspas
+aspas duplas protegem todos os caracteres exceto $ ` /
+ja as aspas simples protegem tudo
+
+File Globbing
+
+aula* - busca tudo que começe com aula
+*01   - busca tudo que acabe com 01, n importa como começe
+{aula, AULA}* - busca as palavras aula tanto como maiúscula como minuscula
+aula[12345] - busca aula que acabe com final entre 1 e 5
+aula[1-5] - a mesma busca acima
+aula? - busca algo que tenha apenas 1 caractere apos(pode se adicionar mais ???)
+
+expressões regulares
+
+"[Ll]inux" - como no file globbing, ira buscar por linux mesmo que seja maiúsculo ou minúsculo
+"^linux" - ira buscar palavras que começem com linux
+"linux$" - ira buscar palavras que acabem com linux
+"l[a-i]x*" - o * significa que a letra x pode se repetir ou nem existir
+"l[a-i]x+" - o + significa que a letra x ira aparecer 1 ou mais vezes
+"l[a-i]x?" - o ? significa que a letra x aparecera uma ou nenhuma vez
+"O.Linux" - busca com qualquer letra onde esta o ponto(pode se usar mais de um ...)
+"O.*Linux" - busca qualquer coisa no local do ponto, desde que exista a letra O
+para selecionar o . - "linux\."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

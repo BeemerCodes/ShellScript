@@ -1,0 +1,10 @@
+dd if=/dev/zero of=/swapfi
+le.img bs=1M count=2048
+
+sudo mkswap /swapfile.img
+
+sudo swapon /swapfile.img
+
+desligar
+
+sudo swapoff /swapfile.img
